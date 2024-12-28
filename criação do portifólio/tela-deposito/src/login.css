@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+    transition: background 0.5s linear, color 0.5s linear;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.btn-contato button {
+    padding: 10px 40px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #00ff08;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    margin-right: 8px;
+}
+
+/* estilo cabeçalho */
+
+header {
+    padding: 40px 4%;
+}
+
+header > .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+header a {
+    color: #7d7d7d;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+
+.btn-contato button:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+/* logo */ 
+
+.estilo-img {
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 15px;
+    filter: invert(1);
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header a {
+    color: #7d7d7d;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+    font-size: 20px;
+}
+
+header a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+/* logo */ 
+
+.estilo-img {
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 15px;
+    filter: invert(1);
+}
+
+/*estilização da imagem */
+
+section .topo-do-site {
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.img-topo-site {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-topo-site img {
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+    border-radius: 70px;
+    width: 430px;
+    max-width: 80%;
+    height: auto;
+}
+
+@keyframes flutuar {
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
+}
+/* estilização do deposito */
+/* Estilo para garantir que o formulário de depósito esteja centralizado na página */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h1 {
+    color: #00ff08;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+input, select, button {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #00ff08;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    transition: .2s;
+    border-radius: 15px;
+}
+
+button:hover {
+    background-color: #00ce07;
+    transform: scale(1.05);
+}
+
+#payment-details div {
+    margin-bottom: 10px;
+}
+
+
+/* animação da palavra login */
+
+.txt-sec-animado {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.txt-sec-animado span {
+    position: relative;
+}
+
+.txt-sec-animado span::before {
+    content: "";
+    color: #00ff08;
+    animation: seclogin 6s infinite;
+}
+
+.txt-sec-animado span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #00ff08;
+    right: -10px;
+    opacity: 1;
+    animation: cursor .8s infinite, digita 10s steps(15) infinite;
+    width: calc(100% + 15px);
+    background-color: black;
+}
+
+@keyframes digita {
+    10%, 15%, 30%, 35%, 50%, 55% , 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 15px);
+    }
+}
+
+@keyframes cursor {
+    0%{
+        border-left: 2px solid black;
+    }
+}
+
+@keyframes seclogin {
+    0%,100%{
+        content: " o seu depósito";
+    }
+    
+}
+
+/* segunda animação do login */
+
+/* animacação */
+
+.txt-secanimado {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.txt-secanimado span {
+    position: relative;
+}
+
+.txt-secanimado span::before {
+    content: "";
+    color: #00ff08;
+    animation: secloginanimation 6s infinite;
+}
+
+.txt-secanimado span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #00ff08;
+    right: -10px;
+    opacity: 1;
+    animation: cursor .8s infinite, digita 10s steps(15) infinite;
+    width: calc(100% + 15px);
+    background-color: black;
+}
+
+@keyframes secloginanimation {
+    0%,100%{
+        content: "A vontade para enviar seu feedback!";
+    }
+    
+}
+
+
+
+/* fim da animação */
+
+/* estilização do chatbot */
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00ff08;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    background-color: #00ff08;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.chatbot-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.user-message .message-text {
+    background-color: #00ff08;
+    align-self: flex-end;
+}
+
+.chatbot-message .message-text {
+    background-color: #f4f4f4;
+}
+
+.message img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message-text {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+#chatbot-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 26px;
+}
+
+#send-btn {
+    padding: 6px;
+    margin-left: 10px;
+    background-color: #00ff08;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#send-btn:hover {
+    background-color: #00ff08;
+    transform: scale(1.05);
+}
+
+
+/* fim chatbot */
+
+/* footer */
+
+footer {
+    background-color: #070807;
+    border-radius: 15px;
+}
+
+footer .c-container {
+    display: flex;
+    color: #ffffff;
+    margin: 3%;
+}
+
+footer .c-container ul {
+    width: 25%;
+}
+
+footer .c-container h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    transition: .2s;
+    cursor: pointer;
+}
+
+footer .c-container h3:hover {
+    transform: scale(1.05);
+}
+
+footer .c-container .redes-sociais img {
+    margin-right: 10px;
+    width: 10%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+footer .c-container .redes-sociais img:hover {
+    transform: scale(1.20);
+}
+
+footer .c-container ul > p {
+    margin-bottom: 40px;
+}
+
+footer .c-container li {
+    margin: 10px 0;
+}
+
+footer .c-container a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+footer .c-container a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+footer .c-container p{
+    transition: .2s;
+    cursor: pointer;
+}
+
+footer .c-container p:hover {
+    transform: scale(1.05);
+}
+
+/* fim do footer */ 
+
+/*responsividade */
+
+@media screen and (max-width: 1020px){
+    /* classes gerais */
+    .flex{
+        flex-direction: column-reverse;
+    }
+
+    /* topo site */
+    .menu-desktop, .btn-contato{
+        display: none;
+    }
+}

@@ -1,0 +1,934 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* estilo geral */
+* {
+    font-family: montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* dark mode */ 
+
+body {
+    background-color: black;
+    height: 100vh;
+    transition: background 0.5s linear, color 0.5s linear;
+}
+
+body.dark {
+    background-color: #070807;
+    color: #fff;
+}
+
+
+label {
+    background-color: black;
+    border-radius: 40%;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.5s linear;
+}
+
+body.dark label {
+    background-color: white;
+}
+
+/* fim do darkmode */
+
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.btn-contato button {
+    padding: 10px 40px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #00ff08;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    margin-right: 8px;
+}
+
+/* estilo cabeçalho */
+
+header {
+    padding: 40px 4%;
+}
+
+header > .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+header a {
+    color: #7d7d7d;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+
+.btn-contato button:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+/* logo */ 
+
+.estilo-img {
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 15px;
+    filter: invert(1);
+}
+
+/* estilo topo do site */
+
+/* estilização do texto animado*/
+
+.txt-animado {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.txt-animado span {
+    position: relative;
+}
+
+.txt-animado span::before {
+    content: "";
+    color: #00ff08;
+    animation: palavras 10s infinite;
+}
+
+.txt-animado span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #00ff08;
+    right: -10px;
+    opacity: 1;
+    animation: cursor .16s infinite, digita 10s steps(15) infinite;
+    width: calc(100% + 15px);
+    background-color: black;
+}
+
+@keyframes digita {
+    10%, 15%, 30%, 35%, 50%, 55% , 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 15px);
+    }
+}
+
+@keyframes cursor {
+    0%{
+        border-left: 2px solid black;
+    }
+}
+
+@keyframes palavras {
+    0%,100%{
+        content: "Jogos de Cassino";
+    }   
+}
+
+
+ /* fim da estilização texto animado*/
+
+ .container-slider {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.container-images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+}
+
+.slider {
+    opacity: 0;
+    transition: opacity .2s;
+    position: absolute;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.on {
+    opacity: 1;
+}
+
+#prev-button, #next-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#prev-button img, #next-button img {
+    width: 100%;
+    height: 100%;
+    filter: invert(100%);
+}
+
+#prev-button {
+    transform: rotate(180deg);
+}
+
+/* fim da estilização carrossel */
+
+/* iniciando a estilização da seção de CASSINO */
+.bd-esp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 120px;
+}
+
+.wrapper {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+}
+
+.wrapper i {
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 1.25rem;
+    transform: translateY(-50%);
+    box-shadow: 0 3px 6px black
+}
+
+.wrapper i:first-child {
+    left: -22px;
+}
+
+.wrapper i:last-child {
+    right: -22px;
+}
+
+.wrapper .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 360px;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel :where(.card, .img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel .dragging {
+    scroll-behavior: auto;
+}
+
+.carousel .dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel .card {
+    scroll-snap-align: start;
+    height: 342px;
+    list-style: none;
+    background-color: #070807;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #00ff08;
+}
+
+.card .img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.card .img img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.card h2 {
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 30px 0 5px;
+}
+
+card span {
+    color: #00ff08;
+    font-size: 1.31rem;
+}
+
+.btn-carrossel button {
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #00ff08;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    margin-right: 8px;
+}
+
+.btn-carrossel button:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+/* sessão do segundo carrossel */
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 120px;
+}
+
+.carousel-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-wrapper i {
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 1.25rem;
+    transform: translateY(-50%);
+    box-shadow: 0 3px 6px black
+}
+
+.carousel-wrapper i:first-child {
+    left: -22px;
+}
+
+.carousel-wrapper i:last-child {
+    right: -22px;
+}
+
+.carousel-wrapper .carousel-items {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 360px;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+}
+
+.carousel-items::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-items :where(.carousel-card, .carousel-img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-items .dragging {
+    scroll-behavior: auto;
+}
+
+.carousel-items .dragging .carousel-card {
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel-items .carousel-card {
+    scroll-snap-align: start;
+    height: 342px;
+    list-style: none;
+    background-color: #070807;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #00ff08;
+}
+
+.carousel-card .carousel-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.carousel-card .carousel-img img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.caousel-card h2 {
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 30px 0 5px;
+}
+
+carousel-card span {
+    color: #00ff08;
+    font-size: 1.31rem;
+}
+
+/* sessão texto animado part jogos de futebol */
+
+.txt-sec-animado-sec {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.txt-sec-animado-sec span {
+    position: relative;
+}
+
+.txt-sec-animado-sec span::before {
+    content: "";
+    color: #00ff08;
+    animation: secjogos 6s infinite;
+}
+
+.txt-sec-animado-sec span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #00ff08;
+    right: -10px;
+    opacity: 1;
+    animation: cursor .8s infinite, digita 10s steps(15) infinite;
+    width: calc(100% + 15px);
+    background-color: black;
+}
+
+@keyframes secjogos {
+    0%,100%{
+        content: "Cassino";
+    }
+    
+}
+
+/* fim da sessão texto animado futebol */
+
+/* transform cassino */
+
+.card h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    transition: .2s;
+    cursor: pointer;
+}
+.card h3:hover {
+    transform: scale(1.05);
+}
+.card h3 span{
+    color: #00ff08;
+}
+
+/* transform cassino segundo carrossel */ 
+
+.carousel-card h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    transition: .2s;
+    cursor: pointer;
+}
+.carousel-card h3:hover {
+    transform: scale(1.05);
+}
+
+/*fim transform cassino */ 
+
+/* seg-main*/
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    color: #fff;
+}
+
+h1, h2, h3 {
+    color: #fff;
+}
+
+.feature, .game, .testimonial {
+    background-color: black; 
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/*.bbt-apost {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #00ff08;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    margin-right: 8px;
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+.bbt-apost button:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+} */ 
+
+/*.odd-button button{
+    border: none;
+    background-color: #00ff08;
+    color: black;
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 10px;
+    transform: .2s;
+} */
+.container {
+    background-color: #070807;
+    border-radius: 15px;
+    border: 2px solid #00ff08;
+}
+
+.games {
+    background-color: #070807;
+}
+
+.container h2 span {
+    color: #00ff08;
+}
+/* estilização botão inicio */
+.container-inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-inicio {
+    padding: 10px 40px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #00ff08;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    margin-right: 8px;
+}
+.btn-inicio:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+/* fim botão inicio */
+
+/* estilização do chatbot */
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00ff08;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    background-color: #00ff08;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.chatbot-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.user-message .message-text {
+    background-color: #00ff08;
+    align-self: flex-end;
+}
+
+.chatbot-message .message-text {
+    background-color: #f4f4f4;
+}
+
+.message img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message-text {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+#chatbot-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 26px;
+}
+
+#send-btn {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #00ff08;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#send-btn:hover {
+    background-color: #00ff08;
+    transform: scale(1.05);
+}
+
+
+/* fim chatbot */
+
+/* estiização do formulário */
+
+.f-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.form_box {
+    display: flex;
+    flex-direction: column;
+    background-color: #070807;
+    border-radius: 8px;
+    width: 700px;
+}
+
+.form_box .title {
+    padding: 24px 32px;
+    font-size: 24px;
+    border-bottom: thin solid #ccc;
+}
+
+.form_box form {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 32px;
+}
+
+.form_box input,
+.form_box textarea {
+    width: calc(50% - 8px);
+    height: 48px;
+    border-radius: 8px;
+    border: #999;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.form_box input:first-child {
+    margin-right: 16px;
+}
+
+.form_box input[name=subject]{
+    width: 100%;
+}
+
+.form_box textarea {
+    width: 100%;
+    height: 180px;
+    padding: 16px;
+}
+
+.form_box button {
+    padding: 10px 40px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #00ff08;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    margin-right: 8px;
+}
+
+.form_box button:hover {
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+.logo{
+    text-align: center;
+}
+
+.estilo-img-footer {
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 15px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* animacação */
+
+.txt-sec-animado {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.txt-sec-animado span {
+    position: relative;
+}
+
+.txt-sec-animado span::before {
+    content: "";
+    color: #00ff08;
+    animation: secfooter 6s infinite;
+}
+
+.txt-sec-animado span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #00ff08;
+    right: -10px;
+    opacity: 1;
+    animation: cursor .8s infinite, digita 10s steps(15) infinite;
+    width: calc(100% + 15px);
+    background-color: black;
+}
+
+@keyframes secfooter {
+    0%,100%{
+        content: "A vontade para enviar seu feedback!";
+    }
+    
+}
+/* fim da animação */
+
+/* logo */
+
+.logo{
+    text-align: center;
+}
+
+.estilo-img-footer {
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 15px;
+    height: auto;
+    margin: 0 auto;
+    filter: invert(1);
+}
+
+/*continuação footer */
+
+footer {
+    background-color: #070807;
+    border-radius: 15px;
+}
+
+footer .c-container {
+    display: flex;
+    color: #ffffff;
+    margin: 3%;
+}
+
+footer .c-container ul {
+    width: 25%;
+}
+
+footer .c-container h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    transition: .2s;
+    cursor: pointer;
+}
+
+footer .c-container h3:hover {
+    transform: scale(1.05);
+}
+
+footer .c-container .redes-sociais img {
+    margin-right: 10px;
+    width: 10%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+footer .c-container .redes-sociais img:hover {
+    transform: scale(1.20);
+}
+
+footer .c-container ul > p {
+    margin-bottom: 40px;
+}
+
+footer .c-container li {
+    margin: 10px 0;
+}
+
+footer .c-container a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+footer .c-container a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+footer .c-container p{
+    transition: .2s;
+    cursor: pointer;
+}
+
+footer .c-container p:hover {
+    transform: scale(1.05);
+}
